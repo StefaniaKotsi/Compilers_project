@@ -7,7 +7,6 @@ Package minipython;
 Helpers
 	digit = ['0' .. '9'];
 	letter = ['a' .. 'z']|['A' .. 'Z']; 
-	space = ' ';
 	cr = 13; 
 	lf = 10;
 	all = [0..127]; 
@@ -23,18 +22,27 @@ Tokens
 	div = '/';
 	mod = '%'
 	eq = '=';
+	plusassign = '+=';
+	minusassign = '-=';
+	multassign = '*=';
+	divassign = '/=';
 	exclam = '!';
 	dictt = 'dict';
 	def = 'def';
 	logic_plus = '&&';
 	l_par = '(';
 	r_par = ')';
-	l_br = '[';
+	l_br = '['; 
 	r_br = ']';
+	l_cbr = '{';
+	r_cbr = '}';
 	dot = '.'
 	comma=',';
 	qmark = '?';
 	gqmark = ';';
+	and = 'and';
+	or = 'or';
+	not = 'not';
 	if = 'if';
 	elif = 'elif';
 	else = 'else';
@@ -42,6 +50,10 @@ Tokens
 	while = 'while';
 	print = 'print';
 	return = 'return';
+	min = 'min';
+	max = 'max';
+	import = 'import';
+	package = 'package';
 	less = '<';
 	great = '>';
 	lessoreq = '>=';
