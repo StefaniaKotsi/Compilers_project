@@ -7,6 +7,7 @@ Package minipython;
 Helpers
 	digit = ['0' .. '9'];
 	letter = ['a' .. 'z']|['A' .. 'Z']; 
+	space = ' ';
 	cr = 13; 
 	lf = 10;
 	all = [0..127]; 
@@ -20,6 +21,7 @@ Tokens
 	mult = '*';
 	dmult = '**';
 	div = '/';
+	mod = '%'
 	eq = '=';
 	exclam = '!';
 	dictt = 'dict';
@@ -29,26 +31,31 @@ Tokens
 	r_par = ')';
 	l_br = '[';
 	r_br = ']';
+	dot = '.'
 	comma=',';
 	qmark = '?';
 	gqmark = ';';
 	if = 'if';
 	elif = 'elif';
 	else = 'else';
+	for = 'for';
 	while = 'while';
 	print = 'print';
 	return = 'return';
 	less = '<';
 	great = '>';
+	lessoreq = '>=';
+	greatoreq = '<=';
 	true = 'true';
 	semi = ':';
 	false = 'false';
-	quote = '"';
+	squote = '''
+	dquote = '"';
 	blank = (' ' | lf | cr);
 	line_comment = '#' not_eol* eol; 
 	number = digit+ | (digit+ '.' digit+);
 	id = letter (letter | digit)*;
-	string = '"'not_eol* '"';
+	string = '"'not_eol* '"' | '''not_eol* ''';
 
 Ignored Tokens
 	blank, line_comment;
