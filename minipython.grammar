@@ -15,13 +15,17 @@ Helpers
 
 Tokens
 	tab = 9;
+	space = ' ';
+	underscore = '_';
 	plus = '+';
 	minus = '-';
 	mult = '*';
 	dmult = '**';
 	div = '/';
+	floordiv = '//'
 	mod = '%'
 	eq = '=';
+	equals = '==';
 	plusassign = '+=';
 	minusassign = '-=';
 	multassign = '*=';
@@ -34,8 +38,6 @@ Tokens
 	r_par = ')';
 	l_br = '['; 
 	r_br = ']';
-	l_cbr = '{';
-	r_cbr = '}';
 	dot = '.'
 	comma=',';
 	qmark = '?';
@@ -50,24 +52,28 @@ Tokens
 	while = 'while';
 	print = 'print';
 	return = 'return';
-	min = 'min';
-	max = 'max';
-	import = 'import';
-	package = 'package';
+	continue = 'continue';
+	break = 'break';
+	in = 'in';
 	less = '<';
 	great = '>';
 	lessoreq = '>=';
 	greatoreq = '<=';
-	true = 'true';
+	true = 'True';
 	semi = ':';
-	false = 'false';
+	false = 'False';
+	none =  'None';
 	squote = '''
 	dquote = '"';
-	blank = (' ' | lf | cr);
+	blank = (space | lf | cr);
 	line_comment = '#' not_eol* eol; 
-	number = digit+ | (digit+ '.' digit+);
-	id = letter (letter | digit)*;
+	number = digit+ | (digit+ dot digit+);
+	id = underscore* letter (letter | digit | underscore)*;
 	string = '"'not_eol* '"' | '''not_eol* ''';
+
+
 
 Ignored Tokens
 	blank, line_comment;
+
+Productions
