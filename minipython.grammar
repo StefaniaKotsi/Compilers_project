@@ -12,18 +12,19 @@ Helpers
 	all = [0..127]; 
 	eol = lf | cr | cr lf ;
 	not_eol = [all - [cr + lf]]; 
+	space = ' ';
+	dot = '.';
+	underscore = '_';
 
 Tokens
 	tab = 9;
-	space = ' ';
-	underscore = '_';
 	plus = '+';
 	minus = '-';
 	mult = '*';
 	dmult = '**';
 	div = '/';
-	floordiv = '//'
-	mod = '%'
+	floordiv = '//';
+	mod = '%';
 	eq = '=';
 	equals = '==';
 	plusassign = '+=';
@@ -38,7 +39,6 @@ Tokens
 	r_par = ')';
 	l_br = '['; 
 	r_br = ']';
-	dot = '.'
 	comma=',';
 	qmark = '?';
 	gqmark = ';';
@@ -63,7 +63,7 @@ Tokens
 	semi = ':';
 	false = 'False';
 	none =  'None';
-	squote = '''
+	squote = ''';
 	dquote = '"';
 	blank = (space | lf | cr);
 	line_comment = '#' not_eol* eol; 
@@ -75,5 +75,3 @@ Tokens
 
 Ignored Tokens
 	blank, line_comment;
-
-Productions
