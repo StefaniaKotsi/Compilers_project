@@ -9,12 +9,12 @@ public final class TFalse extends Token
 {
     public TFalse()
     {
-        super.setText("false");
+        super.setText("False");
     }
 
     public TFalse(int line, int pos)
     {
-        super.setText("false");
+        super.setText("False");
         setLine(line);
         setPos(pos);
     }

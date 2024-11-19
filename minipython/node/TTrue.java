@@ -9,12 +9,12 @@ public final class TTrue extends Token
 {
     public TTrue()
     {
-        super.setText("true");
+        super.setText("True");
     }
 
     public TTrue(int line, int pos)
     {
-        super.setText("true");
+        super.setText("True");
         setLine(line);
         setPos(pos);
     }

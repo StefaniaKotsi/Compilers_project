@@ -105,7 +105,49 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseTFloordiv(TFloordiv node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTMod(TMod node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseTEq(TEq node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTEquals(TEquals node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTPlusassign(TPlusassign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTMinusassign(TMinusassign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTMultassign(TMultassign node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTDivassign(TDivassign node)
     {
         defaultCase(node);
     }
@@ -177,6 +219,24 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseTAnd(TAnd node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTOr(TOr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTNot(TNot node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseTIf(TIf node)
     {
         defaultCase(node);
@@ -190,6 +250,12 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTElse(TElse node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTFor(TFor node)
     {
         defaultCase(node);
     }
@@ -213,6 +279,24 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseTContinue(TContinue node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTBreak(TBreak node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTIn(TIn node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseTLess(TLess node)
     {
         defaultCase(node);
@@ -220,6 +304,18 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTGreat(TGreat node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTLessoreq(TLessoreq node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTGreatoreq(TGreatoreq node)
     {
         defaultCase(node);
     }
@@ -243,7 +339,19 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTQuote(TQuote node)
+    public void caseTNone(TNone node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTSquote(TSquote node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTDquote(TDquote node)
     {
         defaultCase(node);
     }
