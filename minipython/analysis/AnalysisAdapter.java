@@ -93,37 +93,73 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseANoargFunction(ANoargFunction node)
+    public void caseAFunction(AFunction node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAArgFunction(AArgFunction node)
+    public void caseAAssignmentExpression(AAssignmentExpression node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAOneArgument(AOneArgument node)
+    public void caseAIdexpExpression(AIdexpExpression node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseATwoArgument(ATwoArgument node)
+    public void caseALenExpression(ALenExpression node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAThreeArgument(AThreeArgument node)
+    public void caseAAsciiExpression(AAsciiExpression node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAFourArgument(AFourArgument node)
+    public void caseAMaxtwoExpression(AMaxtwoExpression node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMintwoExpression(AMintwoExpression node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAParenthesisExpression(AParenthesisExpression node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseABracketsimpleExpression(ABracketsimpleExpression node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAValueExpression(AValueExpression node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAIdExpression(AIdExpression node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAImportExpression(AImportExpression node)
     {
         defaultCase(node);
     }
@@ -159,175 +195,61 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAPrintcomplexStatement(APrintcomplexStatement node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
     public void caseAAssignStatement(AAssignStatement node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseABracketsStatement(ABracketsStatement node)
+    public void caseAValueExponention(AValueExponention node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAAssertsimpleStatement(AAssertsimpleStatement node)
+    public void caseAExponentionExponention(AExponentionExponention node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAAssertcomplexStatement(AAssertcomplexStatement node)
+    public void caseAExponentionFactor(AExponentionFactor node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAImportStatement(AImportStatement node)
+    public void caseAMultiplicationFactor(AMultiplicationFactor node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAAssignmentExpression(AAssignmentExpression node)
+    public void caseADivisionFactor(ADivisionFactor node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAIdexpExpression(AIdexpExpression node)
+    public void caseAModuloFactor(AModuloFactor node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAValueExpression(AValueExpression node)
+    public void caseAFactorTerm(AFactorTerm node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAIdExpression(AIdExpression node)
+    public void caseAAdditionTerm(AAdditionTerm node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseALenExpression(ALenExpression node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAAsciiExpression(AAsciiExpression node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAMaxoneExpression(AMaxoneExpression node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAMaxtwoExpression(AMaxtwoExpression node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAMinoneExpression(AMinoneExpression node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAMintwoExpression(AMintwoExpression node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAParenthesisExpression(AParenthesisExpression node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseABracketsimpleExpression(ABracketsimpleExpression node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseABracketscomplexExpression(ABracketscomplexExpression node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAOrAssignment(AOrAssignment node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAEqAssignment(AEqAssignment node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAMinusassignAssignment(AMinusassignAssignment node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseADivassignAssignment(ADivassignAssignment node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseALogicalAndLogicalOr(ALogicalAndLogicalOr node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseALogicalOrLogicalOr(ALogicalOrLogicalOr node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseALogicalNotLogicalAnd(ALogicalNotLogicalAnd node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseALogicalAndLogicalAnd(ALogicalAndLogicalAnd node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAComparisonLogicalNot(AComparisonLogicalNot node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseALogicalNotLogicalNot(ALogicalNotLogicalNot node)
+    public void caseASubtractionTerm(ASubtractionTerm node)
     {
         defaultCase(node);
     }
@@ -387,79 +309,73 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAFactorTerm(AFactorTerm node)
+    public void caseAComparisonLogicalNot(AComparisonLogicalNot node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAAdditionTerm(AAdditionTerm node)
+    public void caseALogicalNotLogicalNot(ALogicalNotLogicalNot node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseASubtractionTerm(ASubtractionTerm node)
+    public void caseALogicalNotLogicalAnd(ALogicalNotLogicalAnd node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAExponentionFactor(AExponentionFactor node)
+    public void caseALogicalAndLogicalAnd(ALogicalAndLogicalAnd node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAMultiplicationFactor(AMultiplicationFactor node)
+    public void caseALogicalAndLogicalOr(ALogicalAndLogicalOr node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseADivisionFactor(ADivisionFactor node)
+    public void caseALogicalOrLogicalOr(ALogicalOrLogicalOr node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAModuloFactor(AModuloFactor node)
+    public void caseAOrAssignment(AOrAssignment node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAValueExponention(AValueExponention node)
+    public void caseAEqAssignment(AEqAssignment node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAExponentionExponention(AExponentionExponention node)
+    public void caseAMinusassignAssignment(AMinusassignAssignment node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseASimpleImportOne(ASimpleImportOne node)
+    public void caseADivassignAssignment(ADivassignAssignment node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAComplexImportOne(AComplexImportOne node)
+    public void caseASimpleImportSth(ASimpleImportSth node)
     {
         defaultCase(node);
     }
 
     @Override
     public void caseASimpleModule(ASimpleModule node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAComplexModule(AComplexModule node)
     {
         defaultCase(node);
     }
