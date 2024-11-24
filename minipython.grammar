@@ -13,7 +13,7 @@ Helpers
 	eol = lf | cr | cr lf ;
 	not_eol = [all - [cr + lf]]; 
 	space = ' ';
-	dot = '.';
+	period = '.';
 	underscore = '_';
 
 Tokens
@@ -27,6 +27,7 @@ Tokens
 	mod = '%';
 	eq = '=';
 	equals = '==';
+	notequals = '!=';
 	plusassign = '+=';
 	minusassign = '-=';
 	multassign = '*=';
@@ -39,6 +40,7 @@ Tokens
 	r_par = ')';
 	l_br = '['; 
 	r_br = ']';
+	dot = period;
 	comma=',';
 	qmark = '?';
 	gqmark = ';';
@@ -65,9 +67,17 @@ Tokens
 	none =  'None';
 	squote = ''';
 	dquote = '"';
+	as = 'as';
+	assert = 'assert';
+	from = 'from';
+	import = 'import';
+	ascii = 'ascii';
+	len = 'len';
+	max = 'max';
+	min = 'min';
 	blank = (space | lf | cr);
 	line_comment = '#' not_eol* eol; 
-	number = digit+ | (digit+ dot digit+);
+	number = digit+ | (digit+ period digit+);
 	id = underscore* letter (letter | digit | underscore)*;
 	string = '"'not_eol* '"' | '''not_eol* ''';
 
@@ -78,25 +88,89 @@ Ignored Tokens
 Productions
 	programme = commands*;
 	
-	commands ={stat} statement|
-				 {expr}expression;
+	commands ={stat} function|
+				 {expr} statement;
+
+	function = {noarg}def id l_par r_par semi statement |
+					{arg} def id l_par argument r_par semi statement;
+
+	argument = {one} id |
+					{two} id eq value |
+					{three} [lpar]:id eq value comma [rpar]:id |
+					{four} [onid]:id [oneeq]:eq [oneval]:value comma [twoid]:id [twoeq]:eq [twoval]:value;
+
+	statement = {if} tab if comparison semi statement |
+				  {while} tab while comparison semi statement |
+				  {for} tab for [lpar]:id in [rpar]:id semi statement |
+				  {return} tab return expression |
+				  {printsimple} tab print expression |
+				  {printcomplex} tab print [lpar]:expression comma [rpar]:expression |
+				  {assign} tab assignment |
+				  {brackets} tab id l_br [lpar]:expression r_br eq [rbar]:expression |
+				  {assertsimple} tab assert expression |
+				  {assertcomplex} tab assert [lpar]:expression comma [rpar]:expression |
+				  {import} tab import;
+				  
+
+	expression = {assignment} assignment |
+					{idexp} id l_br expression r_br |
+					{value} value |
+					{id} id |
+					{len} len l_par expression r_par |
+					{ascii} ascii l_par expression |
+					{maxone} max l_par value r_par |
+					{maxtwo} max l_par [lpar]:value comma [rpar]:value r_par |
+					{minone} min l_par value r_par |
+					{mintwo} min l_par [lpar]:value comma [rpar]:value r_par |
+					{parenthesis} l_par expression r_par |
+					{bracketsimple} l_br value r_br |
+					{bracketscomplex} l_br [lpar]:value comma [rpar]:value r_br;
+
+	assignment = {or} logical_or |
+					{eq} assignment eq logical_or |
+					{minusassign} assignment minusassign logical_or |
+					{divassign}assignment divassign logical_or;
+
+	logical_or = {logical_and}logical_and |
+					{logical_or}logical_or or logical_and;
+
+	logical_and = {logical_not}logical_not |
+					{logical_and}logical_and and logical_not;
 	
-	statement ={if}tab* if  comparison semi statement |
-				  {assign}tab* id eq expression |
-				  {print}tab* print expression;
+	logical_not = {comparison} comparison |
+					{logical_not} not comparison;
+
+
+	comparison = {equals} comparison equals term |
+					{notequals} comparison notequals term |
+					{less} comparison less term |
+					{great}comparison great term |
+					{greatoreq} comparison greatoreq term |
+					{lessoreq} comparison lessoreq term |
+					{in} comparison in term |
+					{true} true |
+					{false} false;
 	
-	comparison = {true} true|
-					 {false} false|
-					 {lessc} [lpar]:expression less [rpar]:expression|
-					 {greatc}[lpar]:expression great [rpar]:expression;
-					 
-	expression = {multiplication} multiplication |
-					{addition} expression plus multiplication|
-					{subtraction} expression minus multiplication;
-					
-	multiplication = {something} something |
-						  {multiplication} multiplication mult something;
-						  
-	something ={identifier}id|
-				  {numb}number|
-				  {par} l_par expression r_par;
+	term = {factor} factor |
+				{addition} term plus factor |
+				{subtraction} term minus factor;
+
+	factor = {exponention} exponention |
+				{multiplication} factor mult exponention |
+				{division} factor div exponention |
+				{modulo} factor mod exponention;
+				
+
+	exponention = {value} value |
+					{exponention}exponention dmult value;
+
+	import_one = {simple} import module |
+					{complex} from module import id;
+
+	module = {simple} id |
+				{complex} [lpar]:id dot [rpar]:id;
+
+	value ={identifier} id |
+				  {numb} number |
+				  {par} l_par assignment r_par;
+
